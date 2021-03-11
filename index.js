@@ -1,36 +1,15 @@
-const { ApolloServer, gql } = require('apollo-server'); // using express bts automatically
+const { ApolloServer } = require('apollo-server'); // using express bts automatically
 const mongoose = require('mongoose');
 
 const { MONGODB_URI } = require('./config');
-const Post = require('./models/Post');
+const typeDefs = require('./graphql/typeDefs');
+const resolvers = require('./graphql/resolvers');
 
-const typeDefs = gql`
-  type Post {
-    id: ID!
-    body: String!
-    createdAt: String!
-    username: String!
-  }
-
-  type Query {
-    getPosts: [Post]
-  }
-`;
-
-const resolvers = {
-  Query: {
-    async getPosts() {
-      try {
-        const posts = await Post.find();
-        return posts;
-      } catch (err) {
-        throw new Error(err);
-      }
-    },
-  },
-};
-
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: ({ req }) => ({ req }),
+});
 
 mongoose
   .connect(MONGODB_URI, {

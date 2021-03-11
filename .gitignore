@@ -1,6 +1,5 @@
 .dist
 zz-helper.txt
+config.js
 
 node_modules
-
-.config
