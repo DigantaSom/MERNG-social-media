@@ -4,7 +4,9 @@
   "description": "Full Stack React GraphQL Node Social Media app",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index"
+    "server": "nodemon index",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "Diganta Som",
@@ -15,5 +17,8 @@
     "graphql": "^15.5.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.19"
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.0"
   }
 }
