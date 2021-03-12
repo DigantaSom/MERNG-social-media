@@ -8,7 +8,7 @@ const { validateRegisterInput, validateLoginInput } = require('../../utils/valid
 
 const generateToken = user =>
   jwt.sign({ id: user.id, email: user.email, username: user.username }, JWT_SECRET, {
-    expiresIn: '1d',
+    expiresIn: '1h',
   });
 
 module.exports = {
