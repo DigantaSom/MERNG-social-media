@@ -23,6 +23,7 @@ const PostCard = ({
         </Card.Meta>
         <Card.Description>{body}</Card.Description>
       </Card.Content>
+      
       <Card.Content extra>
         <Button as='div' labelPosition='right' onClick={likePost}>
           <Button color='teal' basic>
