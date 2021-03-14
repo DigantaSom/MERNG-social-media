@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from 'react';
+import { useContext, useState } from 'react';
 import { gql, useMutation, useQuery } from '@apollo/client';
 import { Button, Card, Form, Grid, Icon, Image, Label } from 'semantic-ui-react';
 import moment from 'moment';
