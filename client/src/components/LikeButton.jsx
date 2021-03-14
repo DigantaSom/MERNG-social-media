@@ -46,6 +46,7 @@ const LikeButton = ({ user, post: { id, likeCount, likes } }) => {
   );
 };
 
+// because of 'id' field of Post, we do not need to update the cache manually for likes
 const LIKE_POST_MUTATION = gql`
   mutation likePost($postId: ID!) {
     likePost(postId: $postId) {
